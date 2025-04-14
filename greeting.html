@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <link rel="stylesheet" href="greeting.css" onload="console.log('greeting.css loaded')" onerror="console.error('Failed to load greeting.css')">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Lora:wght@400&display=swap" rel="stylesheet" onload="console.log('Google Fonts loaded')" onerror="console.error('Failed to load Google Fonts')">
+</head>
+<body>
+    <!-- Tambahan: Bintang latar belakang -->
+    <div class="background-stars"></div>
+    
+    <div class="container">
+        <h1 class="gift-title">Buka Hadiah Kecil Untukmuu</h1>
+        <div class="gift-box" id="giftBox">
+            <div class="lid"></div>
+            <div class="box"></div>
+            <div class="ribbon"></div>
+        </div>
+        <p class="hint">Klik kotak kado untuk membuka kejutan!</p>
+        <div class="video-container" id="videoContainer" style="display: none;">
+            <!-- Tambahan: Pesan romantis di atas video -->
+            <p class="video-message">Ini hadiah kecil untukmu, Sayang! 💕</p>
+            <video id="birthdayVideo" src="assets/videos/birthday-wish.mp4" preload="auto" controls></video>
+        </div>
+    </div>
+    <button class="continue-button" id="continueButton" style="display: none;">Lanjutkan</button>
+    <audio id="giftSound" src="assets/sounds/gift-open.mp3" preload="auto" onloadstart="console.log('Gift sound loaded')" onerror="console.error('Failed to load gift sound')"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" onload="console.log('GSAP loaded')" onerror="console.error('Failed to load GSAP')"></script>
+    <script src="greeting.js" onload="console.log('greeting.js loaded')" onerror="console.error('Failed to load greeting.js')"></script>
+</body>
+</html>

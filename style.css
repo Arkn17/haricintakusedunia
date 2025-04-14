@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: url('assets/images/background.jpg') no-repeat center center fixed; /* Foto background */
+    background-size: cover;
+    background-color: #000000; /* Fallback kalau foto gagal dimuat */
+    overflow: hidden;
+    font-family: 'Lora', serif;
+    display: flex;
+    flex-direction: column; /* Ubah jadi column biar title dan container tersusun vertikal */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Fade hitam 60% */
+    z-index: 1;
+}
+
+/* Judul */
+.title {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 96px; /* Diperbesar 2x dari 48px */
+    color: #FF69B4; /* Pink */
+    text-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493, 0 0 20px #FF1493, 0 0 30px #FF1493; /* Efek neon pink */
+    margin-bottom: 40px;
+    z-index: 2; /* Pastikan di atas overlay */
+    text-align: center;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0; /* Awalnya tidak terlihat */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding: 60px 50px; /* Diperbesar dari 50px 40px */
+    border-radius: 20px;
+}
+
+/* Ornamen Dekoratif */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 100px);
+    left: 50px;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 2, 50 5 T 100 5" stroke="%23FF69B4" stroke-width="1.5" fill="none"/></svg>') repeat-x;
+    background-size: 50px 10px;
+}
+
+.container::before { top: 20px; }
+.container::after { bottom: 20px; }
+
+/* Hint */
+.hint {
+    font-family: 'Lora', serif;
+    font-size: 24px; /* Diperbesar dari 18px */
+    color: #FF69B4; /* Pink */
+    margin-bottom: 30px; /* Diperbesar dari 20px */
+    text-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493; /* Efek neon ringan */
+}
+
+/* Input */
+.keyword-input {
+    padding: 15px 30px; /* Diperbesar dari 10px 20px */
+    font-size: 20px; /* Diperbesar dari 16px */
+    border: 2px solid #FF69B4; /* Pink */
+    border-radius: 25px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FF69B4;
+    font-family: 'Lora', serif;
+    margin-bottom: 30px; /* Diperbesar dari 20px */
+    width: 300px; /* Diperbesar dari 200px */
+}
+
+.keyword-input::placeholder {
+    color: #FF69B4; /* Pink */
+    opacity: 0.7;
+}
+
+/* Tombol */
+.submit-button {
+    padding: 15px 40px; /* Diperbesar dari 10px 30px */
+    font-size: 20px; /* Diperbesar dari 16px */
+    background: #FF69B4; /* Pink */
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Lora', serif;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Pop-up Warning */
+.warning-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #FF69B4;
+    border-radius: 10px;
+    padding: 20px;
+    color: #FF69B4;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+.warning-popup p {
+    margin: 0 0 10px 0;
+    font-family: 'Lora', serif;
+}
+
+.warning-popup button {
+    padding: 5px 15px;
+    background: #FF69B4;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lora', serif;
+}
+
+.warning-popup button:hover {
+    background: #FF1493;
+}
+
+/* Partikel Bintang */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FF69B4; /* Pink */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    pointer-events: none;
+    z-index: 1;
+}

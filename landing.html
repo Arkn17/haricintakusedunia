@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for Sayang</title>
+    <link rel="stylesheet" href="style.css" onload="console.log('style.css loaded')" onerror="console.error('Failed to load style.css')">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Lora:wght@400&display=swap" rel="stylesheet" onload="console.log('Google Fonts loaded')" onerror="console.error('Failed to load Google Fonts')">
+</head>
+<body>
+    <div class="overlay"></div>
+    <h1 class="title">
+        <span class="letter">H</span><span class="letter">a</span><span class="letter">p</span><span class="letter">p</span><span class="letter">y</span>
+        <span class="letter"> </span>
+        <span class="letter">B</span><span class="letter">i</span><span class="letter">r</span><span class="letter">t</span><span class="letter">h</span><span class="letter">d</span><span class="letter">a</span><span class="letter">y</span>
+        <span class="letter"> </span>
+        <span class="letter">S</span><span class="letter">a</span><span class="letter">y</span><span class="letter">a</span><span class="letter">n</span><span class="letter">g</span>
+    </h1>
+    <div class="container">
+        <p class="hint">Masukkan kata kunci untuk melihat kejutan!</p>
+        <input type="text" class="keyword-input" placeholder="Kata kunci..." />
+        <button class="submit-button" onclick="checkKeyword()">Kirim</button>
+        <!-- Pop-up Warning -->
+        <div class="warning-popup" id="warningPopup">
+            <p>Kata kunci salah! Coba lagi ya.</p>
+            <button onclick="closeWarningPopup()">Tutup</button>
+        </div>
+    </div>
+    <audio id="dingSound" src="assets/sounds/ding.mp3" preload="auto" onloadstart="console.log('Ding sound loaded')" onerror="console.error('Failed to load ding sound')"></audio>
+    <audio id="warningSound" src="assets/sounds/warning.mp3" preload="auto" onloadstart="console.log('Warning sound loaded')" onerror="console.error('Failed to load warning sound')"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" onload="console.log('GSAP loaded')" onerror="console.error('Failed to load GSAP')"></script>
+    <script src="script.js" onload="console.log('script.js loaded')" onerror="console.error('Failed to load script.js')"></script>
+</body>
+</html>

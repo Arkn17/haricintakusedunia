@@ -1,0 +1,327 @@
+body {
+    margin: 0;
+    height: 100vh;
+    /* Ubah: Latar belakang gradien romantis */
+    background: linear-gradient(135deg, #1a1a2e, #3b1e3b);
+    overflow: hidden;
+    font-family: 'Lora', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Tambahan: Overlay untuk kontras */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding: 60px 50px;
+    border-radius: 20px;
+}
+
+/* Tambahan: Ornamen dekoratif di atas dan bawah container */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 100px);
+    left: 50px;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 2, 50 5 T 100 5" stroke="%23FF69B4" stroke-width="1.5" fill="none"/></svg>') repeat-x;
+    background-size: 50px 10px;
+}
+
+.container::before { top: 20px; }
+.container::after { bottom: 20px; }
+
+/* Judul */
+.gift-title {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 64px;
+    color: #FF69B4;
+    text-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493, 0 0 20px #FF1493, 0 0 30px #FF1493;
+    margin-bottom: 40px;
+}
+
+/* Hint */
+.hint {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    color: #FF69B4;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493;
+}
+
+/* Kotak Kado */
+.gift-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    cursor: pointer;
+    perspective: 1000px;
+    /* Tambahan: Efek glow berpulsasi */
+    animation: glow 2s infinite ease-in-out;
+}
+
+/* Tambahan: Animasi glow */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 105, 180, 0.8);
+    }
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background: #FF69B4;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.lid {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #FF1493;
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+.ribbon {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 220px;
+    background: #FFD700;
+    z-index: 1;
+}
+
+.ribbon::before,
+.ribbon::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 15px;
+    height: 20px;
+    background: #FFD700;
+}
+
+.ribbon::before {
+    left: -15px;
+    transform: skewY(30deg);
+}
+
+.ribbon::after {
+    right: -15px;
+    transform: skewY(-30deg);
+}
+
+/* Animasi saat kotak kado diklik */
+.gift-box.open .lid {
+    transform: rotateX(-110deg);
+}
+
+.gift-box.open .box {
+    transform: rotateY(360deg);
+}
+
+/* Video Container */
+.video-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Tambahan: Efek backlight pada video */
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.3) 0%, transparent 70%);
+    z-index: -1;
+    animation: backlight 3s infinite ease-in-out;
+}
+
+@keyframes backlight {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Tambahan: Gaya untuk pesan di atas video */
+.video-message {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: #FF69B4;
+    text-shadow: 0 0 5px #FF1493;
+    margin-bottom: 20px;
+}
+
+/* Video */
+#birthdayVideo {
+    max-width: 40%;
+    max-height: 40%;
+    border: 2px solid #FF69B4;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Tombol Lanjutkan */
+.continue-button {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 30px;
+    background: #FF69B4;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Lora', serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    z-index: 3;
+}
+
+.continue-button:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Partikel Bintang (yang sudah ada) */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FF69B4;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Tambahan: Partikel hati di sekitar kotak kado */
+.heart-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FF69B4;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Tambahan: Lampu kecil berkedip di sekitar kotak kado */
+.glow-light {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FFD700;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Tambahan: Konfeti saat kotak kado dibuka */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FF69B4;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Tambahan: Bintang latar belakang */
+.background-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.background-stars::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #FFFFFF;
+    box-shadow: 
+        100px 100px 2px #FFFFFF,
+        200px 300px 2px #FFFFFF,
+        300px 150px 2px #FFFFFF,
+        400px 500px 2px #FFFFFF,
+        500px 200px 2px #FFFFFF,
+        600px 400px 2px #FFFFFF,
+        700px 100px 2px #FFFFFF,
+        800px 350px 2px #FFFFFF,
+        900px 250px 2px #FFFFFF;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+.background-stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #FFFFFF;
+    box-shadow: 
+        150px 250px 2px #FFFFFF,
+        250px 450px 2px #FFFFFF,
+        350px 200px 2px #FFFFFF,
+        450px 600px 2px #FFFFFF,
+        550px 300px 2px #FFFFFF,
+        650px 500px 2px #FFFFFF,
+        750px 150px 2px #FFFFFF,
+        850px 400px 2px #FFFFFF,
+        950px 350px 2px #FFFFFF;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
